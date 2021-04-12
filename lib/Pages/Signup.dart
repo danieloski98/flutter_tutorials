@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Signup extends StatelessWidget {
+  String id;
+
+  Signup({@required this.id});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,10 +15,9 @@ class Signup extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.arrow_back_ios_outlined,
-              color: Colors.blue,
-              size: 100,
+            Text(
+              "This is the id \" ${this.id} \" ",
+              style: TextStyle(fontSize: 30),
             ),
             ElevatedButton(
               onPressed: () {
