@@ -8,10 +8,12 @@ class RouteGenerator {
 
     switch (settings.name) {
       case "/":
-        return MaterialPageRoute(builder: (_) => MainApp());
+        return MaterialPageRoute(builder: (_) => Home());
       case "/signup":
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => Signup(id: args));
+          return MaterialPageRoute(
+            builder: (_) => Dashboard(),
+          );
         }
         return MaterialPageRoute(builder: (_) => ErrorRoute());
       default:

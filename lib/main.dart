@@ -1,61 +1,106 @@
-import "package:flutter/material.dart";
-import 'package:learning/Pages/Signup.dart';
-import './Routes.dart';
+import 'package:flutter/material.dart';
+import 'package:learning/Routes.dart';
 
 void main() {
-  runApp(MainApp());
+  runApp(MaterialApp(
+    onGenerateRoute: RouteGenerator.generateRoute,
+    debugShowCheckedModeBanner: true,
+    home: Home(),
+  ));
 }
 
-class MainApp extends StatelessWidget {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: true,
-      home: Scaffold(
-        body: Home(),
-      ),
-      initialRoute: "/",
-      onGenerateRoute: RouteGenerator.generateRoute,
-    );
-  }
-}
-
-class Home extends StatefulWidget {
-  _Home createState() => _Home();
-}
-
-class _Home extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            "Page One",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 30,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            width: 300,
-            height: 50,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed("/signup", arguments: "Jerry");
-              },
-              child: Text("Go To Page two"),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.blue),
+    return Scaffold(
+      body: SafeArea(
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Positioned(
+              top: 200,
+              left: 30,
+              child: Column(
+                children: [
+                  Text(
+                    "April 2021",
+                    style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.w800,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.grey[300]),
+                  ),
+                  Text(
+                    "28",
+                    style: TextStyle(
+                        color: Colors.grey[300],
+                        fontSize: 200,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
+                  ),
+                ],
               ),
             ),
-          )
-        ],
+            Positioned(
+              top: 620,
+              left: 30,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Hello Solomon,",
+                    style: TextStyle(
+                        color: Colors.blue[900],
+                        fontSize: 30,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: 200,
+                    child: Text(
+                      "You have 12 active patient lists",
+                      style: TextStyle(
+                        color: Colors.blue[700],
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: 300,
+                    child: ElevatedButton(
+                      onPressed: () => Navigator.of(context)
+                          .pushNamed('/signup', arguments: "12636"),
+                      child: Text(
+                        "View Patients Here",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.blue[900],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              top: 460,
+              left: 200,
+              child: Image.asset(
+                'assets/images/xxz.png',
+                height: 200,
+                width: 200,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
