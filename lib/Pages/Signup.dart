@@ -21,8 +21,26 @@ class _Dashboard extends State<Dashboard> {
         child: Column(
           children: [
             Expanded(
-              child: Center(
-                child: check(this.page),
+              child: Column(
+                children: [
+                  Container(
+                    height: 100,
+                    color: Colors.white,
+                    padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        IconButton(
+                            icon: Icon(Icons.arrow_back_ios),
+                            onPressed: () => Navigator.of(context).pop()),
+                        IconButton(
+                            icon: Icon(Icons.menu_outlined), onPressed: null),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(

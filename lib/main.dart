@@ -21,6 +21,7 @@ class Home extends StatelessWidget {
               top: 200,
               left: 30,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     "April 2021",
